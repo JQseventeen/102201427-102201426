@@ -15,7 +15,7 @@ public class TeamActivity extends AppCompatActivity {
     private ListView listViewProjects;
     private Button buttonHome;
     private Button buttonChat;
-    private Button buttonMy;
+    private Button buttonMain;
     private Button buttonWarehouse;
 
     @Override
@@ -29,8 +29,10 @@ public class TeamActivity extends AppCompatActivity {
         listViewProjects = findViewById(R.id.listView_projects);
         buttonHome = findViewById(R.id.button_home);
         buttonChat = findViewById(R.id.button_chat);
-        buttonMy = findViewById(R.id.button_my);
+        buttonMain = findViewById(R.id.button_main);
         buttonWarehouse = findViewById(R.id.button_warehouse);
+
+
 
         // 设置点击事件监听器
         buttonProjects.setOnClickListener(new View.OnClickListener() {
@@ -47,31 +49,38 @@ public class TeamActivity extends AppCompatActivity {
             }
         });
 
-        buttonHome.setOnClickListener(new View.OnClickListener() {
+        buttonMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 跳转到首页
+                Intent intent = new Intent(TeamActivity.this, TeamActivity.class);
+                startActivity(intent);
             }
         });
 
         buttonChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 跳转到聊天页面
+                //跳转到聊天
+                Intent intent = new Intent(TeamActivity.this, ChatActivity1.class);
+                startActivity(intent);
             }
         });
 
-        buttonMy.setOnClickListener(new View.OnClickListener() {
+        buttonHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 跳转到我的页面
+                // 注意：如果buttonHome真的是指向“我的”页面，
+                Intent intent = new Intent(TeamActivity.this, HomeActivity.class); // 或者 MyActivity.class
+                startActivity(intent);
             }
         });
 
         buttonWarehouse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 跳转到仓库页面
+                //仓库
+                Intent intent = new Intent(TeamActivity.this, StoreActivity.class);
+                startActivity(intent);
             }
         });
 

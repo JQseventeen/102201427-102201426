@@ -21,23 +21,38 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.fyt.R;
+import com.example.fyt.RegisterActivity;
+import com.example.fyt.StoreActivity;
 import com.example.fyt.TeamActivity;
 import com.example.fyt.databinding.ActivityLoginBinding;
+
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
+    private Button buttonregister;
 
     @Override
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        buttonregister = findViewById(R.id.register);
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
+
+        buttonregister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //注册
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         final EditText usernameEditText = binding.username;
         final EditText passwordEditText = binding.password;
@@ -131,4 +146,5 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
 }

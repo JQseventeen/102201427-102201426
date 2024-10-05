@@ -1,5 +1,6 @@
 package com.example.fyt;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -11,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.fyt.ui.login.LoginActivity;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -40,7 +43,9 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // 显示Toast消息
                 Toast.makeText(RegisterActivity.this, "验证成功", Toast.LENGTH_SHORT).show();
-
+                //跳到设置密码
+                Intent intent = new Intent(RegisterActivity.this, SetpasswordActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -48,9 +48,9 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="352dp"
         android:text="这是聊天"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="321dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="165dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

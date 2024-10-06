@@ -51,4 +51,5 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.4.1")
     implementation("com.google.android.material:material:1.4.0") // 或者使用最新版本号
     implementation("androidx.constraintlayout:constraintlayout:2.1.1")
+    implementation ("com.makeramen:roundedimageview:2.3.0")
 }

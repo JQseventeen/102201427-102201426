@@ -8,16 +8,17 @@
     android:orientation="vertical"
     tools:context=".StoreActivity">
 
+    <!-- 底部导航栏 -->
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="332dp"
         android:text="这是仓库"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="356dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="177dp" />
 
-    <!-- 底部导航栏 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

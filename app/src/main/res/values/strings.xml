@@ -15,6 +15,9 @@
     <string name="check_code">"验证"</string>
     <string name="prompt_confirm_password">"请再次输入密码"</string>
     <string name="action">"确认"</string>
+    <string name="set_school">"请输入学校名称"</string>
+    <string name="set_school_number">"请输入工号"</string>
+    <string name="set_name">"请输入姓名"</string>
 
 
 </resources>

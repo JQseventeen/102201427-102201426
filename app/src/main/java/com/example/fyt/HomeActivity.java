@@ -14,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class HomeActivity extends AppCompatActivity {
 
-
     private Button buttonHome;
     private Button buttonChat;
     private Button buttonMain;
@@ -32,9 +31,14 @@ public class HomeActivity extends AppCompatActivity {
         buttonMain = findViewById(R.id.button_main);
         buttonWarehouse = findViewById(R.id.button_warehouse);
 
+
+
+
+        //底部导航栏
         buttonMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //首页
                 Intent intent = new Intent(HomeActivity.this, TeamActivity.class);
                 startActivity(intent);
             }
@@ -52,8 +56,8 @@ public class HomeActivity extends AppCompatActivity {
         buttonHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 注意：如果buttonHome真的是指向“我的”页面，
-                Intent intent = new Intent(HomeActivity.this, HomeActivity.class); // 或者 MyActivity.class
+                // 指向“我的”页面
+                Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });

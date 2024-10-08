@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,11 @@ public class HomeActivity extends AppCompatActivity {
     private Button buttonChat;
     private Button buttonMain;
     private Button buttonWarehouse;
+    private ImageButton firstButton;
+    private ImageButton secondButton;
+    private ImageButton thirdButton;
+    private ImageButton fourthButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +38,44 @@ public class HomeActivity extends AppCompatActivity {
         buttonMain = findViewById(R.id.button_main);
         buttonWarehouse = findViewById(R.id.button_warehouse);
 
+        firstButton = findViewById(R.id.first);
+        secondButton = findViewById(R.id.second);
+        thirdButton = findViewById(R.id.third);
+        fourthButton = findViewById(R.id.fourth);
 
-
+        // 设置点击监听器
+        firstButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //跳到人才林编辑
+                Intent intent = new Intent(HomeActivity.this, EditForestActivity.class);
+                startActivity(intent);
+            }
+        });
+        secondButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //跳到设置帮助
+                Intent intent = new Intent(HomeActivity.this, SettingsHelpActivity.class);
+                startActivity(intent);
+            }
+        });
+        thirdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //跳到聊天
+                Intent intent = new Intent(HomeActivity.this, ChatActivity1.class);
+                startActivity(intent);
+            }
+        });
+        fourthButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //跳到认证
+                Intent intent = new Intent(HomeActivity.this, CertifyActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //底部导航栏
         buttonMain.setOnClickListener(new View.OnClickListener() {

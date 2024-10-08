@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FYT</string>
+    <string name="app_name">Find Your Team</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">请输入账号</string>
     <string name="prompt_password">请输入密码</string>
@@ -18,6 +18,11 @@
     <string name="set_school">"请输入学校名称"</string>
     <string name="set_school_number">"请输入工号"</string>
     <string name="set_name">"请输入姓名"</string>
-
-
+    <string name="first_button_desc"></string>
+    <string name="second_button_desc"></string>
+    <string name="third_button_desc"></string>
+    <string name="fourth_button_desc"></string>
+    <string name="back_button_desc"></string>
+    <string name="add_tag_button_desc"></string>
+    <string name="send_button_desc"></string>
 </resources>

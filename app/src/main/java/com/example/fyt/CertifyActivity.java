@@ -1,7 +1,11 @@
 package com.example.fyt;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
@@ -23,8 +27,29 @@ public class CertifyActivity extends AppCompatActivity {
             return insets;
         });
 
+        Button facebutton =findViewById(R.id.certify_button);
+        // 设置点击监听器
+        facebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //跳到word
+                Intent intent = new Intent(CertifyActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton backbutton =findViewById(R.id.certify_back_button);
+        // 设置点击监听器
+        facebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //跳到word
+                Intent intent = new Intent(CertifyActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Spinner spinner = findViewById(R.id.spinner);
-        String[] options = {"Option 1", "Option 2", "Option 3"};
+        String[] options = {"教师", "学生", "助教"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);

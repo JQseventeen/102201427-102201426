@@ -2,6 +2,7 @@ package com.example.fyt;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -16,7 +17,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.SimpleAdapter;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ChatActivity1 extends AppCompatActivity {
 
@@ -25,6 +33,7 @@ public class ChatActivity1 extends AppCompatActivity {
     private Button buttonChat;
     private Button buttonMain;
     private Button buttonWarehouse;
+    private ListView messageListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,5 +87,30 @@ public class ChatActivity1 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        messageListView = findViewById(R.id.message_list);
+
+        // 设置消息数据
+        List<Map<String, String>> messageData = new ArrayList<>();
+        messageData.add(createMessage("儿子", "好了没？", "5:00"));
+        messageData.add(createMessage("李四", "七夕快乐！", "5:20"));
+        messageData.add(createMessage("神金", "院楼，速来。", "10:00"));
+        messageData.add(createMessage("实验室", "哈哈哈哈哈哈", "18:00"));
+        messageData.add(createMessage("学弟", "这个对吗？", "19:50"));
+
+        // 设置适配器
+        String[] from = {"name", "message", "time"};
+        int[] to = {R.id.contact_name, R.id.message_text, R.id.message_time};
+
+        SimpleAdapter adapter = new SimpleAdapter(this, messageData,
+                R.layout.item_chat1, from, to);
+        messageListView.setAdapter(adapter);
+    }
+    private HashMap<String, String> createMessage(String name, String message, String time) {
+        HashMap<String, String> item = new HashMap<>();
+        item.put("name", name);
+        item.put("message", message);
+        item.put("time", time);
+        return item;
     }
 }

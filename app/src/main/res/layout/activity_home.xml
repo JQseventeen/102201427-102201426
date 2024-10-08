@@ -5,63 +5,202 @@
     android:id="@+id/home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EEEEF2"
     tools:context=".HomeActivity">
 
+    <!-- Top Label -->
+    <TextView
+        android:id="@+id/top_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team first"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp" />
 
-
-
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/profile_image"
+    <!-- Profile Image -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profile_card"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/main"
-        app:riv_corner_radius="50dp"
-        app:riv_border_width="2dp"
-        app:riv_border_color="#FF0000"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="40dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_label">
 
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/profile_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/main" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Name TextView -->
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="姓名"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_card" />
 
+    <!-- Employee ID TextView -->
     <TextView
         android:id="@+id/employee_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="工号: 123456"
+        android:text="123456"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
-    <!-- 底部导航栏 -->
-    <TextView
-        android:id="@+id/textView2"
+    <!-- Info Icons -->
+    <LinearLayout
+        android:id="@+id/info_icons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
-        android:text="这是我的"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="177dp" />
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employee_id">
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="30dp">
+
+            <ImageButton
+                android:id="@+id/info_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/profile_info"
+                android:scaleType="centerInside" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="30dp">
+
+            <ImageButton
+                android:id="@+id/favorites_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/favorites"
+                android:scaleType="centerInside" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="30dp">
+
+            <ImageButton
+                android:id="@+id/followers_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/profile_followers"
+                android:scaleType="centerInside" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <!-- List Items -->
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info_icons">
+
+        <!-- 第一个按钮 -->
+        <ImageButton
+            android:id="@+id/first"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/first_button_background"
+            android:contentDescription="@string/first_button_desc"
+            android:padding="16dp"
+            android:scaleType="fitCenter" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0" />
+
+        <!-- 第二个按钮 -->
+        <ImageButton
+            android:id="@+id/second"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/second_button_background"
+            android:contentDescription="@string/second_button_desc"
+            android:padding="16dp"
+            android:scaleType="fitCenter" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0" />
+
+        <!-- 第三个按钮 -->
+        <ImageButton
+            android:id="@+id/third"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/third_button_background"
+            android:contentDescription="@string/third_button_desc"
+            android:padding="16dp"
+            android:scaleType="fitCenter" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0" />
+
+        <!-- 第四个按钮 -->
+        <ImageButton
+            android:id="@+id/fourth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="@drawable/fourth_button_background"
+            android:contentDescription="@string/fourth_button_desc"
+            android:padding="16dp"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+    <!-- 底部导航栏 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
         android:orientation="horizontal"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
@@ -92,42 +231,5 @@
             android:layout_weight="1"
             android:text="我的" />
     </LinearLayout>
-
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="52dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="96dp"
-        android:rotationX="2"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageButton2"
-        app:srcCompat="@drawable/home" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="220dp"
-        android:rotationX="2"
-
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_star_big_off" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:rotationX="2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toTopOf="@+id/imageButton2"
-        app:srcCompat="?android:attr/listChoiceIndicatorSingle" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

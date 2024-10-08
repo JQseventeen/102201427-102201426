@@ -7,12 +7,38 @@
     android:layout_height="match_parent"
     tools:context=".ChatActivity1">
 
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="消息"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <!-- Message List -->
+    <ListView
+        android:id="@+id/message_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_title"
+        app:layout_constraintVertical_bias="0.0" />
     <!-- 底部导航栏 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
         android:orientation="horizontal"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
@@ -43,14 +69,5 @@
             android:layout_weight="1"
             android:text="我的" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="352dp"
-        android:text="这是聊天"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="165dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

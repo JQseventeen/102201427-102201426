@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".EditForestActivity">
+
+    <!-- Header -->
+
+    <!-- Profile Image -->
+
+    <!-- Nickname Input -->
+
+    <!-- Introduction Input -->
+
+    <!-- Tags Input -->
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="65dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/back_button_desc"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/introduction_input"
+        android:layout_width="345dp"
+        android:layout_height="63dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="简介"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nickname_input" />
+
+    <EditText
+        android:id="@+id/nickname_input"
+        android:layout_width="345dp"
+        android:layout_height="63dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="昵称"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+    <TextView
+        android:id="@+id/tips_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="8dp"
+        android:text="如：概率论、编程等专业、课程标签，方便您寻找志同道合的朋友。"
+        android:textColor="#777777"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tags_input" />
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="81dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/tree_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_title" />
+
+    <ImageView
+        android:id="@+id/profile_image2"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/tree_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_title" />
+
+    <ImageView
+        android:id="@+id/profile_image3"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/tree_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_title" />
+
+    <EditText
+        android:id="@+id/tags_input"
+        android:layout_width="345dp"
+        android:layout_height="63dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="标签"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/introduction_input" />
+
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:text="编辑我的人才树"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Tips Text -->
+
+    <!-- Save Button -->
+
+    <ImageButton
+        android:id="@+id/add_tag_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/add_tag_button_desc"
+        android:src="@drawable/ic_add"
+        app:layout_constraintEnd_toEndOf="@+id/tags_input"
+        app:layout_constraintTop_toTopOf="@+id/tags_input" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="#3D9238"
+        android:text="保存编辑"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="#3D9238" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

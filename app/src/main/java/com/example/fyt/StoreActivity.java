@@ -2,8 +2,10 @@ package com.example.fyt;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -11,6 +13,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+
+import com.example.fyt.adapters.ProjectAdapter;
+import com.example.fyt.database.AppDatabase;
+import com.example.fyt.database.Project;
+import com.example.fyt.database.ProjectDao;
+
+import java.util.List;
 
 public class StoreActivity extends AppCompatActivity {
 
@@ -18,6 +30,9 @@ public class StoreActivity extends AppCompatActivity {
     private Button buttonChat;
     private Button buttonMain;
     private Button buttonWarehouse;
+    private RecyclerView recyclerView;
+    private ProjectAdapter projectAdapter;
+    private ProjectDao projectDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +49,7 @@ public class StoreActivity extends AppCompatActivity {
         buttonMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("StoreActivity", "Home button clicked");
                 Intent intent = new Intent(StoreActivity.this, TeamActivity.class);
                 startActivity(intent);
             }
@@ -43,6 +59,7 @@ public class StoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //跳转到聊天
+                Log.d("StoreActivity", "Home button clicked");
                 Intent intent = new Intent(StoreActivity.this, ChatActivity1.class);
                 startActivity(intent);
             }
@@ -67,10 +84,45 @@ public class StoreActivity extends AppCompatActivity {
         });
 
 
+        LinearLayout createProjectLayout = findViewById(R.id.create_project);
+        createProjectLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StoreActivity.this, CreateprojectActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.store), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "projects-database").build();
+        projectDao = db.projectDao();
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        new Thread(() -> {
+            List<Project> projects = projectDao.getAllProjects();
+            runOnUiThread(() -> {
+                projectAdapter = new ProjectAdapter(projects, this::openProjectDetails);
+                recyclerView.setAdapter(projectAdapter);
+            });
+        }).start();
     }
+
+    private void openProjectDetails(Project project) {
+        Intent intent = new Intent(this, ProjectDetailActivity.class);
+        intent.putExtra("projectName", project.name);
+        intent.putExtra("projectMember", project.members);
+        intent.putExtra("projectDescription", project.description);
+        intent.putExtra("imageUri", project.imagePath);
+        startActivity(intent);
+    }
+
 }

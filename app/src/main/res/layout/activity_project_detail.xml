@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/project_detail_page"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+
+    <ImageButton
+        android:id="@+id/editButton"
+        android:layout_width="128dp"
+        android:layout_height="118dp"
+        android:layout_gravity="center"
+        android:contentDescription="Edit"
+        android:src="@drawable/chat" />
+
+    <TextView
+        android:id="@+id/projectNameLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="项目名称"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/projectName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="这里是项目名称"
+        android:textSize="18sp" />
+
+    <!-- 项目成员 -->
+    <TextView
+        android:id="@+id/projectMemberLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="项目人员"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/projectMember"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="项目成员列表" />
+
+    <!-- 项目简介 -->
+    <TextView
+        android:id="@+id/projectDescriptionLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="项目简介"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/projectDescription"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
+        android:text="这里是项目简介" />
+
+    <!-- 返回按钮 -->
+    <Button
+        android:id="@+id/backToStoreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="24dp"
+        android:text="返回仓库" />
+</LinearLayout>

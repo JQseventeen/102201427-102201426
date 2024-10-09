@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/project_create_page"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="创建项目"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="43dp"
+        android:layout_height="47dp"
+        android:contentDescription="Back"
+        android:onClick="onBackPressed"
+        android:src="@drawable/ic_back" />
+
+    <ImageView
+        android:id="@+id/imageUpload"
+        android:layout_width="106dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        android:src="@drawable/chat" />
+
+    <!-- 项目名称输入框说明 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="项目名称"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/projectNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入项目名称"
+        android:layout_marginTop="0dp"/>
+
+    <!-- 项目成员输入框说明 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="项目成员"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/projectMemberInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:hint="请输入项目成员" />
+
+    <!-- 添加本地文件按钮说明 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加本地文件说明（可选）"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/fileUploadButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="添加本地文件" />
+
+    <!-- 项目简介输入框说明 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="项目简介"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/projectDescriptionInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入项目简介"
+        android:layout_marginTop="0dp"/>
+
+    <!-- 确认创建按钮 -->
+    <Button
+        android:id="@+id/confirmCreateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确认创建"
+        android:layout_marginTop="24dp"/>
+</LinearLayout>

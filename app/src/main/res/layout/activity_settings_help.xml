@@ -9,17 +9,29 @@
     tools:context=".SettingsHelpActivity">
 
     <!-- Header -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Team first"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp" />
+
     <TextView
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:text="设置与帮助"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/back_button"
@@ -33,32 +45,48 @@
         android:layout_marginTop="24dp"
         android:contentDescription="@string/back_button_desc" />
 
-    <!-- Help Content -->
+    <!-- Prompt TextView -->
 
-    <!-- Input command field -->
+    <!-- ScrollView for chat messages -->
     <TextView
-        android:id="@+id/help_content"
+        android:id="@+id/prompt_board"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="88dp"
-        android:text="1. 身份认证\n进入我的 -> 身份认证 -> 认证，即可增删您的身份认证信息\n\n2. 人才林信息修改\n进入我的 -> 编辑我的人才林，即可增删您的人才标签信息\n\n3. 项目管理\n进入仓库 -> 创建项目，即可新建或管理您的项目"
-        android:textColor="#333333"
-        android:textSize="16sp"
+        android:layout_marginTop="36dp"
+        android:background="#EEEEEE"
+        android:padding="12dp"
+        android:text="输入1：查看身份认证设置\n输入2：查看人才林设置\n输入3：查看项目管理设置"
+        android:textColor="#444444"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_title" />
 
+    <ScrollView
+        android:id="@+id/chat_scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/prompt_board"
+        app:layout_constraintBottom_toTopOf="@+id/input_command"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- Send Button -->
+        <LinearLayout
+            android:id="@+id/chat_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+    </ScrollView>
 
+    <!-- Input command field -->
     <EditText
         android:id="@+id/input_command"
-        android:layout_width="310dp"
+        android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="4dp"
         android:background="@drawable/settings_rounded_edit_text"
         android:hint="请输入命令"
         android:inputType="text"
@@ -66,17 +94,20 @@
         android:padding="12dp"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/send_button" />
 
+    <!-- Send Button -->
     <ImageButton
         android:id="@+id/send_button"
-        android:layout_width="69dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="4dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/send_button_desc"
         android:src="@drawable/ic_send"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/input_command" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/input_command"
+        android:layout_marginEnd="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

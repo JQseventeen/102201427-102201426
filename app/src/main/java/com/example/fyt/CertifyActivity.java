@@ -39,7 +39,7 @@ public class CertifyActivity extends AppCompatActivity {
         });
         ImageButton backbutton =findViewById(R.id.certify_back_button);
         // 设置点击监听器
-        facebutton.setOnClickListener(new View.OnClickListener() {
+        backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //跳到word

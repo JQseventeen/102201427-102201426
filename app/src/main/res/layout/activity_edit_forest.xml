@@ -8,6 +8,18 @@
     android:background="#FFFFFF"
     tools:context=".EditForestActivity">
 
+    <TextView
+        android:id="@+id/top_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Team first"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <!-- Header -->
 
     <!-- Profile Image -->
@@ -23,7 +35,7 @@
         android:layout_width="65dp"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/back_button_desc"
         android:src="@drawable/ic_back"
@@ -114,11 +126,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/introduction_input" />
 
+    <!-- Tips Text -->
+
+    <!-- Save Button -->
+
     <TextView
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="108dp"
         android:gravity="center"
         android:text="编辑我的人才树"
         android:textSize="18sp"
@@ -126,10 +142,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Tips Text -->
-
-    <!-- Save Button -->
 
     <ImageButton
         android:id="@+id/add_tag_button"

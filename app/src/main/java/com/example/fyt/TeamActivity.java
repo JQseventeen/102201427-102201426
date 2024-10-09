@@ -38,6 +38,8 @@ public class TeamActivity extends AppCompatActivity {
         buttonProjects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(TeamActivity.this, AllStoreActivity.class);
+                startActivity(intent);
                 // 跳转到项目总库页面
             }
         });
@@ -45,10 +47,11 @@ public class TeamActivity extends AppCompatActivity {
         buttonTalents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(TeamActivity.this, GeniusForestActivity.class);
+                startActivity(intent);
                 // 跳转到人才林页面
             }
         });
-
         buttonMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

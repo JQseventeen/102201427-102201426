@@ -72,7 +72,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //跳到认证
-                Intent intent = new Intent(HomeActivity.this, CertifyActivity.class);
+                Intent intent = new Intent(HomeActivity.this, CertifyDetailsActivity.class);
                 startActivity(intent);
             }
         });

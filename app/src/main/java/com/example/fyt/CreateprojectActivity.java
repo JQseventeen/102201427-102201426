@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.fyt.database.AppDatabase;
 import com.example.fyt.database.Project;
 import com.example.fyt.database.ProjectDao;
@@ -37,7 +38,7 @@ public class CreateprojectActivity extends AppCompatActivity {
         projectDescriptionInput = findViewById(R.id.projectDescriptionInput);
         imageUpload = findViewById(R.id.imageUpload);
         Button confirmCreateButton = findViewById(R.id.confirmCreateButton);
-        Button fileUploadButton = findViewById(R.id.fileUploadButton); // 假设你有这个按钮
+        Button fileUploadButton = findViewById(R.id.fileUploadButton);
 
         // 返回按钮功能
         findViewById(R.id.backButton).setOnClickListener(v -> onBackPressed());
@@ -101,5 +102,26 @@ public class CreateprojectActivity extends AppCompatActivity {
             }
             startActivity(intent);
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            if (requestCode == PICK_IMAGE_REQUEST_CODE) {
+                // 处理图片选择结果
+                selectedImageUri = data.getData();
+
+                // 使用 Glide 将图片加载到 ImageView 中
+                loadImageWithGlide(selectedImageUri);
+            }
+        }
+    }
+
+    private void loadImageWithGlide(Uri imageUri) {
+        Glide.with(this)
+                .load(imageUri)
+                .into(imageUpload);
     }
 }

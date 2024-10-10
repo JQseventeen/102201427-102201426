@@ -1,6 +1,7 @@
 package com.example.fyt;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,10 +12,14 @@ import android.widget.Toast;
 import android.content.SharedPreferences;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.makeramen.roundedimageview.RoundedImageView;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -26,6 +31,9 @@ public class HomeActivity extends AppCompatActivity {
     private ImageButton secondButton;
     private ImageButton thirdButton;
     private ImageButton fourthButton;
+    private ActivityResultLauncher<Intent> imagePickerLauncher;
+    private RoundedImageView profileImage;
+
 
 
     @Override
@@ -44,6 +52,25 @@ public class HomeActivity extends AppCompatActivity {
         secondButton = findViewById(R.id.second);
         thirdButton = findViewById(R.id.third);
         fourthButton = findViewById(R.id.fourth);
+
+
+        profileImage = findViewById(R.id.profile_image);
+
+        // 设置图片点击监听器
+        profileImage.setOnClickListener(v -> {
+            openImagePicker();
+        });
+
+        // 初始化图片选择器
+        imagePickerLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        Uri selectedImageUri = result.getData().getData();
+                        // 将选择的图片加载到 RoundedImageView 中
+                        profileImage.setImageURI(selectedImageUri);
+                    }
+                });
 
         // 设置点击监听器
         firstButton.setOnClickListener(new View.OnClickListener() {
@@ -136,4 +163,12 @@ public class HomeActivity extends AppCompatActivity {
 
 
     }
+
+    private void openImagePicker() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        imagePickerLauncher.launch(intent);
+    }
 }
+
+

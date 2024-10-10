@@ -25,4 +25,7 @@
     <string name="back_button_desc"></string>
     <string name="add_tag_button_desc"></string>
     <string name="send_button_desc"></string>
+    <string name="project_info">项目总库 | 据说集齐7个项目就能召唤神龙</string>
+    <string name="genius_forest_info">人才林 | 点击进入……进入神魔？自己想罢</string>
+    <string name="app_welcome">欢迎进入Find Your Team\n在这里，你可以寻找志同道合的朋友\n在这里，你可以收获崭新待开发的项目\n在这里，你可以找到小伙伴和你一起完成软件工程的作业</string>
 </resources>

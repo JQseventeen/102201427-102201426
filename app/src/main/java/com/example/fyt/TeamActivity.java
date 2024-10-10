@@ -26,7 +26,6 @@ public class TeamActivity extends AppCompatActivity {
         // 初始化组件
         buttonProjects = findViewById(R.id.button_projects);
         buttonTalents = findViewById(R.id.button_talents);
-        listViewProjects = findViewById(R.id.listView_projects);
         buttonHome = findViewById(R.id.button_home);
         buttonChat = findViewById(R.id.button_chat);
         buttonMain = findViewById(R.id.button_main);

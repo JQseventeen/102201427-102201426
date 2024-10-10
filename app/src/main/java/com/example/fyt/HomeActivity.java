@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //跳到人才林编辑
-                Intent intent = new Intent(HomeActivity.this, EditForestActivity.class);
+                Intent intent = new Intent(HomeActivity.this, ForestDetailsActivity.class);
                 startActivity(intent);
             }
         });

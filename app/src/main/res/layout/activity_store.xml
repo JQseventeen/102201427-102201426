@@ -8,18 +8,20 @@
     android:orientation="vertical"
     tools:context=".StoreActivity">
 
+
+    <!-- Profile Image -->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:gravity="center"
         android:text="Team first"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
-
-    <!-- Profile Image -->
     <androidx.cardview.widget.CardView
         android:id="@+id/profile_card"
         android:layout_width="100dp"
@@ -35,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerInside"
-            android:src="@drawable/main" />
+            android:src="@drawable/touxiang" />
     </androidx.cardview.widget.CardView>
 
 

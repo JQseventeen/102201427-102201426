@@ -13,6 +13,12 @@
         android:theme="@style/Theme.FYT"
         tools:targetApi="31">
         <activity
+            android:name=".ForestDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProjectActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateprojectActivity"
             android:exported="false" />
         <activity
@@ -52,9 +58,9 @@
         </activity>
         <activity android:name=".TeamActivity" />
         <activity android:name=".EditForestActivity" />
-        <activity android:name=".SettingsHelpActivity"/>
-        <activity android:name=".AllStoreActivity"/>
-        <activity android:name=".GeniusForestActivity"/>
+        <activity android:name=".SettingsHelpActivity" />
+        <activity android:name=".AllStoreActivity" />
+        <activity android:name=".GeniusForestActivity" />
     </application>
 
 </manifest>

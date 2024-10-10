@@ -1,6 +1,7 @@
 package com.example.fyt.database;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.Room;
 
 @Entity
 public class Project {

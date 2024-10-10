@@ -20,15 +20,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <!-- Header -->
 
-    <!-- Profile Image -->
-
-    <!-- Nickname Input -->
-
-    <!-- Introduction Input -->
-
-    <!-- Tags Input -->
 
     <ImageButton
         android:id="@+id/back_button"
@@ -42,18 +34,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/introduction_input"
-        android:layout_width="345dp"
-        android:layout_height="63dp"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_edit_text"
-        android:hint="简介"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nickname_input" />
 
     <EditText
         android:id="@+id/nickname_input"
@@ -70,14 +50,15 @@
 
     <TextView
         android:id="@+id/tips_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="333dp"
+        android:layout_height="41dp"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:text="如：概率论、编程等专业、课程标签，方便您寻找志同道合的朋友。"
         android:textColor="#777777"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tags_input" />
 
@@ -85,20 +66,21 @@
         android:id="@+id/profile_image"
         android:layout_width="81dp"
         android:layout_height="83dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/tree_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_title" />
 
+
     <ImageView
         android:id="@+id/profile_image2"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/tree_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintHorizontal_bias="0.697"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_title" />
 
@@ -106,7 +88,7 @@
         android:id="@+id/profile_image3"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/tree_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.291"
@@ -124,11 +106,7 @@
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/introduction_input" />
-
-    <!-- Tips Text -->
-
-    <!-- Save Button -->
+        app:layout_constraintTop_toBottomOf="@+id/nickname_input" />
 
     <TextView
         android:id="@+id/header_title"
@@ -154,6 +132,28 @@
         android:src="@drawable/ic_add"
         app:layout_constraintEnd_toEndOf="@+id/tags_input"
         app:layout_constraintTop_toTopOf="@+id/tags_input" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="12dp"
+        app:boxBackgroundMode="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tips_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/introduction_input"
+            android:layout_width="346dp"
+            android:layout_height="111dp"
+            android:background="@drawable/rounded_edit_text"
+            android:hint="简介"
+            android:maxLines="6"
+            android:padding="12dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/save_button"

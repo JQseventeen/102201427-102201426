@@ -5,14 +5,30 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <!-- 返回按钮，左上角 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Team First"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
-    <ImageButton
+    <Button
+        android:id="@+id/backToStoreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="返回上一页" />
+
+    <ImageView
         android:id="@+id/editButton"
         android:layout_width="128dp"
         android:layout_height="118dp"
         android:layout_gravity="center"
+        android:scaleType="centerCrop"
         android:contentDescription="Edit"
-        android:src="@drawable/chat" />
+        android:src="@drawable/add" />
 
     <TextView
         android:id="@+id/projectNameLabel"
@@ -63,12 +79,24 @@
         android:layout_marginBottom="16dp"
         android:text="这里是项目简介" />
 
-    <!-- 返回按钮 -->
-    <Button
-        android:id="@+id/backToStoreButton"
-        android:layout_width="wrap_content"
+    <!-- 编辑和删除按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="24dp"
-        android:text="返回仓库" />
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/editProjectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="编辑项目" />
+
+        <Button
+            android:id="@+id/deleteProjectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="删除项目" />
+    </LinearLayout>
 </LinearLayout>

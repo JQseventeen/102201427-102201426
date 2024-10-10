@@ -1,19 +1,25 @@
 package com.example.fyt;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EditForestActivity extends AppCompatActivity {
 
-    private EditText nicknameInput;
-    private EditText introductionInput;
-    private EditText tagsInput;
+    private EditText nicknameInput, introductionInput, tagsInput;
     private Button saveButton;
+    private TextView tipsText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,21 @@ public class EditForestActivity extends AppCompatActivity {
         saveButton = findViewById(R.id.save_button);
         ImageButton backButton = findViewById(R.id.back_button);
         ImageButton addTagButton = findViewById(R.id.add_tag_button);
+
+        // 初始化 TextView
+        tipsText = findViewById(R.id.tips_text);
+
+
+        // 加载之前保存的数据
+        SharedPreferences sharedPreferences = getSharedPreferences("ForestDetails", MODE_PRIVATE);
+        String savedNickname = sharedPreferences.getString("nickname", "");
+        String savedIntroduction = sharedPreferences.getString("introduction", "");
+        String savedTags = sharedPreferences.getString("tags", "");
+
+        // 显示之前保存的数据
+        nicknameInput.setText(savedNickname);
+        introductionInput.setText(savedIntroduction);
+        tagsInput.setText(savedTags);
 
         // 返回按钮点击事件
         backButton.setOnClickListener(view -> finish());
@@ -42,8 +63,12 @@ public class EditForestActivity extends AppCompatActivity {
     }
 
     private void addTag(String tag) {
-        // 在此处插入逻辑以添加标签
-        Toast.makeText(this, "标签添加: " + tag, Toast.LENGTH_SHORT).show();
+        if (!tag.isEmpty()) {
+            // 将标签添加到 TextView 中
+            tipsText.setText(tag);
+        } else {
+            Toast.makeText(this, "标签不能为空", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void saveData() {
@@ -51,7 +76,22 @@ public class EditForestActivity extends AppCompatActivity {
         String introduction = introductionInput.getText().toString();
         String tags = tagsInput.getText().toString();
 
-        // 在此处插入保存数据的逻辑
-        Toast.makeText(this, "信息已保存", Toast.LENGTH_SHORT).show();
+        // 保存数据到 SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("ForestDetails", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("nickname", nickname);
+        editor.putString("tags", tags);
+        editor.putString("introduction", introduction);
+        editor.apply();
+
+        // 将数据传回给 ForestDetailsActivity
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("nickname", nickname);
+        resultIntent.putExtra("introduction", introduction);
+        resultIntent.putExtra("tags", tags);
+        setResult(RESULT_OK, resultIntent);
+
+        // 完成并返回
+        finish();
     }
 }

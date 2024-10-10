@@ -1,12 +1,14 @@
 package com.example.fyt;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -114,6 +116,16 @@ public class StoreActivity extends AppCompatActivity {
                 recyclerView.setAdapter(projectAdapter);
             });
         }).start();
+
+        // 读取 SharedPreferences 中的数据
+        SharedPreferences sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
+        String name = sharedPreferences.getString("name", "默认姓名");
+
+        // 设置到 TextView 中
+        TextView nameTextView = findViewById(R.id.user_name);
+
+        nameTextView.setText(name + "的仓库" );
+
     }
 
     private void openProjectDetails(Project project) {

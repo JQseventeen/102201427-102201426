@@ -8,17 +8,6 @@
     android:background="#EEEEF2"
     tools:context=".HomeActivity">
 
-    <!-- Top Label -->
-
-    <!-- Profile Image -->
-
-    <!-- Name TextView -->
-
-    <!-- Employee ID TextView -->
-
-    <!-- Info Icons -->
-
-    <!-- List Items -->
 
     <TextView
         android:id="@+id/name"

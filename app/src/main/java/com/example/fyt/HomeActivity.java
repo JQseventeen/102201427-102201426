@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.content.SharedPreferences;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -119,5 +121,19 @@ public class HomeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // 读取 SharedPreferences 中的数据
+        SharedPreferences sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
+        String name = sharedPreferences.getString("name", "默认姓名");
+        String schoolNumber = sharedPreferences.getString("schoolNumber", "默认学号");
+
+        // 设置到 TextView 中
+        TextView nameTextView = findViewById(R.id.name);
+        TextView schoolNumberTextView = findViewById(R.id.employee_id);
+
+        nameTextView.setText("姓名: " + name);
+        schoolNumberTextView.setText("学号: " + schoolNumber);
+
+
     }
 }
